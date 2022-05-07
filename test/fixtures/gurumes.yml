@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eatry_name: MyString
+  genre: MyString
+  adress: MyString
+  purpose: MyText
+  price: 1
+  delicious: 1
+  access: MyString
+  others: MyText
+
+two:
+  eatry_name: MyString
+  genre: MyString
+  adress: MyString
+  purpose: MyText
+  price: 1
+  delicious: 1
+  access: MyString
+  others: MyText

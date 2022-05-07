@@ -1,0 +1,67 @@
+<h1>新規グルメ投稿</h1>
+<%= form_for @gurume do |f| %>
+  
+  <div class="field">
+    <%= f.label :店の名前 %>
+    <%= f.text_field :eatry_name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ジャンル %>
+    <%= f.text_field :genre, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :目的 %>
+    <%= f.select :purpose, [["朝", "朝"], 
+    ["昼", "昼"],
+    ["お菓子", "お菓子"],
+    ["夜", "夜"]], include_blank: "選択して下さい" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :値段 %>
+    <%= f.text_field :price, :size => 30 %>
+  </div>
+
+  <div class="field">
+  <%= f.label :おいしさ %>
+  <%= f.number_field :delicious, min: 1, max: 10 %>
+</div>
+
+<div class="field">
+    <%= f.label :アクセス %>
+    <%= f.text_field :access, :size => 30 %>
+</div>
+
+  <div class="field">
+  <%= f.label :others %>
+  <%= f.text_area :others, :size => "40x5" %>
+</div>
+
+<div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+</div>
+
+
+<%= f.label :星評価 %>
+<div class="star-field">
+    <input id="star5" type="radio" name="gurume[star]" value="5" />
+    <label for="star5">★</label>
+    <input id="star4" type="radio" name="gurume[star]" value="4" />
+    <label for="star4">★</label>
+    <input id="star3" type="radio" name="gurume[star]" value="3" />
+    <label for="star3">★</label>
+    <input id="star2" type="radio" name="gurume[star]" value="2" />
+    <label for="star2">★</label>
+    <input id="star1" type="radio" name="gurume[star]" value="1" />
+    <label for="star1">★</label>
+</div>
+
+
+  
+  <%= f.submit "Gurumeを投稿する" %>
+<% end %>
+
+<%= link_to "Gurume一覧に戻る", gurumes_path %>

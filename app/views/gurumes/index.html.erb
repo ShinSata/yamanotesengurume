@@ -1,0 +1,118 @@
+<h1>山の手線gurume</h1>
+<h3>Gurume一覧</h3>
+<h3>投稿を検索</h3>
+<%= form_tag({controller:"gurumes",action:"index"}, method: :get) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag '検索する'  %>
+<% end %>
+<% if user_signed_in? %>
+<%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+<%= link_to "新規投稿へ", new_gurume_path %>
+<br>
+
+<%= page_entries_info @gurumes %>
+<div class="gurumes-container">
+    <% @gurumes.each do |t| %>
+      
+    <div class="gurume">
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <%= t.eatry_name %>
+      <%= t.genre %>
+      <%= t.purpose %>
+      <%= t.price %>
+      <%= t.delicious %>
+      <%= t.access %>
+      <%= t.others %>
+      <div class="star">
+      <% if t.star? %>
+        <% for i in 1..t.star do %>
+          ★
+        <% end %>
+      <% end %>
+    </div>
+      
+      <% if user_signed_in? %>
+      <% if current_user.already_liked?(t) %>
+          <%= link_to gurume_like_path(id: t.id, gurume_id: t.id), method: :delete do %>
+            <i class="fas fa-heart"></i><%= t.likes.count %>
+              <p>いいねを取り消す</p><%= t.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to gurume_likes_path(id: t.id, gurume_id: t.id), method: :post do %>
+            <i class="far fa-heart"></i><%= t.likes.count %>
+              <p>いいね</p><%= t.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+  <i class="far fa-heart"></i><%= t.likes.count %>
+      <p>いいねの数 = </p><%= t.likes.count %>
+  <% end %>
+      <%= link_to "詳細へ", gurume_path(t.id) %>
+      <% if user_signed_in? && current_user.id == t.user_id %>
+      <%= link_to "編集する", edit_gurume_path(t.id) %>
+      <%= button_to "削除する", gurume_path(t.id), method: :delete %>
+      <% end %>
+    </div>
+</div>
+<% end %>
+<%= paginate @gurumes %>
+<h3>ランキング</h3>
+    <% @rank_gurumes.each.with_index(1) do |t, i| %>
+        <p>第<%= i %>位</p>
+        <%= t.eatry_name %>
+        <%= t.genre %>
+        <%= t.purpose %>
+        <%= t.price %>
+        <%= t.delicious %>
+        <%= t.access %>
+        <%= t.others %>
+    <% end %>
+
+<h2>gmap</h2>
+<input id="address" type="textbox" value="場所を入力してください">
+<input type="button" value="Encode" onclick="codeAddress()">
+<div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 600px;
+}
+</style>
+
+<script>
+let map
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.7828, lng:-73.9653},
+    zoom: 12,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 40.7828, lng:-73.9653},
+    map: map
+  });
+}
+let geocoder
+
+function codeAddress(){
+  let inputAddress = document.getElementById('address').value;
+
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('該当する結果がありませんでした：' + status);
+    }
+  });   
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyq3n8C3PB36mUCZHu1I8Sonm28Ge7e0c&callback=initMap" async defer></script>

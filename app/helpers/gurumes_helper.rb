@@ -1,0 +1,2 @@
+module GurumesHelper
+end

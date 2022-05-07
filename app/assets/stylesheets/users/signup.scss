@@ -1,0 +1,76 @@
+.sign_up {
+    width: 100%;
+    background-color: aliceblue;
+    padding: 46px 0px;
+    .sign_up_box {
+        width: 880px;
+        height: 400px;
+        background-color: rgba(91, 226, 226, 0.35);
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        
+
+    .title_area{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 880px;
+        height: 50px;
+        background-color: rgba(91, 226, 226, 0);
+        .title{
+            width: 670px;
+            height: 40px;
+            background-color: rgba(91, 226, 226, 0);
+            font-size: 25px;
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+    .name_area{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 880px;
+        height: 280px;
+        background-color: rgba(91, 226, 226, 0);
+        .name{
+            width: 670px;
+            height: 250px;
+            background-color: rgba(91, 226, 226, 0);
+            font-size: 25px;
+            line-height: 60px;
+            .field {
+                display: flex;
+                .c {
+                    width: 350px;
+                    text-align: center;
+                }
+                
+            }
+        }
+
+    }
+    .button_area{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 880px;
+        height: 50px;
+        background-color: rgba(91, 226, 226, 0);
+        .actions{
+            width: 670px;
+            height: 50px;
+            background-color: rgba(91, 226, 226, 0);
+            font-size: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+    }
+}
+}

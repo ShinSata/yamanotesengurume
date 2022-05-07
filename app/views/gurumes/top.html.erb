@@ -1,0 +1,27 @@
+<h1>山手線gurume</h1>
+<br>このサイトは山手線を利用する人が
+<br>駅で降りた時に迷わずに店を決めてもらいたい
+<br>山手線周辺のおいしい料理を分かち合って欲しい
+<br>山手線周辺にどのような店があるのか知ってもらいたい
+<br>という思いを込めて作りました
+
+<h3>ランキング</h3>
+    <% @rank_gurumes.each.with_index(1) do |t, i| %>
+        <p>第<%= i %>位</p>
+        <%= t.eatry_name %>
+        <%= t.genre %>
+        <%= t.purpose %>
+        <%= t.price %>
+        <%= t.delicious %>
+        <%= t.access %>
+        <%= t.others %>
+        <div class="star">
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <% if t.star? %>
+        <% for i in 1..t.star do %>
+          ★
+        <% end %>
+      <% end %>
+    </div>
+    <%= t.created_at %>
+    <% end %>

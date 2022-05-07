@@ -1,0 +1,62 @@
+<h1>グルメ投稿</h1>
+<h3>gurume詳細</h3>
+<div class="gurume">
+  <p><%= @gurume.eatry_name %></p>
+  <p><%= @gurume.genre %></p>
+  <p><%= @gurume.purpose %></p>
+  <p><%= @gurume.price %></p>
+  <p><%= @gurume.delicious %></p>
+  <p><%= @gurume.access %></p>
+  <p><%= @gurume.others %></p>
+  <p><%= @gurume.created_at %></p>
+  <%= image_tag @gurume.image_url, size: "250x200" if @gurume.image? %>
+  <p><div class="star">
+  <% if @gurume.star? %>
+    <% for i in 1..@gurume.star do %>
+      ★
+    <% end %>
+  <% end %>
+</div></p>
+  <% if user_signed_in? %>
+      <% if current_user.already_liked?(@gurume) %>
+          <%= link_to gurume_like_path(@gurume), method: :delete do %>
+            <i class="fas fa-heart"></i><%= @gurume.likes.count %>
+            <p>いいねを取り消す</p><%= @gurume.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to gurume_likes_path(@gurume), method: :post do %>
+            <i class="far fa-heart"></i><%= @gurume.likes.count %>
+            <p>いいね</p><%= @gurume.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+  <i class="far fa-heart"></i><%= @gurume.likes.count %>
+      <p>いいねの数 = </p><%= @gurume.likes.count %>
+  <% end %>
+</div>
+<h2>いいねしたユーザー</h2>
+<% @gurume.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.email unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@gurume, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "gurume一覧に戻る", gurumes_path %>

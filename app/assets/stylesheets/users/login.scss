@@ -1,0 +1,109 @@
+.log_in {
+    width: 100%;
+    background-color: aliceblue;
+    padding: 46px 0px;
+    .log_in_box {
+        width: 880px;
+        height: 400px;
+        background-color: rgba(91, 226, 226, 0.35);
+        margin: auto;
+
+        .title_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 880px;
+            height: 60px;
+            background-color: rgba(91, 226, 226, 0);
+            .title{
+                width: 670px;
+                height: 40px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 40px;
+                text-align: center;
+
+            }
+        }
+
+        .name_area {
+            width: 880px;
+            height: 180px;
+            background-color: rgba(41, 155, 155, 0);
+            display: flex;
+            .name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .field {
+                    width: 880px;
+                    height: 100px;
+                    text-align: center;
+                    font-size: 25px;
+                    
+                }
+
+            }
+        }
+
+        .remember{
+            width: 880px;
+            height: 40px;
+            background-color: rgba(13, 72, 72, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .field {
+                width: 670px;
+                height: 30px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 25px;
+                line-height: 30px;
+                text-align: center;
+            }
+            
+        }
+
+        .actions {
+            width: 880px;
+            height: 40px;
+            background-color: rgba(49, 81, 81, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .submit {
+                width: 670px;
+                height: 30px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+
+        .button_area {
+            width: 880px;
+            height: 50px;
+            background-color: rgba(65, 134, 134, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .button {
+                width: 670px;
+                height: 30px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 30px;
+                text-align: center;
+            }
+
+        }
+    
+        
+
+    
+}
+}
