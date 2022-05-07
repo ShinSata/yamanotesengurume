@@ -59,6 +59,9 @@ gem 'kaminari'
 gem 'carrierwave' , '~> 1.3' ,  '>= 1.3.1'
 gem 'cloudinary'
 gem 'dotenv-rails'
+gem 'net-imap'
+gem 'net-pop'
+gem 'net-smtp'
 group :production do
   gem 'pg'
 end
