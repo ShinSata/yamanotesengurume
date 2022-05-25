@@ -1,14 +1,38 @@
-<h1>DMサンプルアプリ</h1>
-<% if user_signed_in? %>
-<h2>Hello <%= current_user.email %></h2>
-  <% @users.each do |u| %>
-  <p><a href="/users/<%= u.id %>"><%= u.email %>さん</a></p>
-  <hr>
+<div class="dm_area">
+  <div class="dm">
+  <div class="title_area">
+    <div class="title">
+      <h1>～ DMページ ～</h1>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <div class="title_area1">
+      <div class="title1">
+        <h2>ようこそ <%= current_user.name %> さん</h2>
+      </div>
+    </div>
+    <div class="subtitle_area">
+      <div class="subtitle">
+        <h3>以下のユーザーとチャットできます</h3>
+      </div>
+    </div>
+      <% @users.each do |u| %>
+        <div class="chatname_area">
+          <div class="chatname">
+            <p><li><a href="/users/<%= u.id %>"><%= u.email %>さん</a></li></p>
+          </div>
+        </div>
+      <% end %>
+    <div class="logout_area">
+      <div class="logout">
+        <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
+  <% else %>
+        <%= link_to "ユーザーを登録する", new_user_registration_path %>
+        <br>
+        <%= link_to "ログインする", new_user_session_path %>
   <% end %>
-  <%= link_to "ログアウト", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to "ユーザーを登録する", new_user_registration_path %>
-  <br>
-  <%= link_to "ログインする", new_user_session_path %>
-<% end %>
-<%= link_to "マイページへ", user_path(current_user.id) %>
+      <br><%= link_to "マイページに戻る", user_path(current_user.id) %>
+      </div>
+    </div>
+  </div>
+</div>

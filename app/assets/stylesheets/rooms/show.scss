@@ -1,0 +1,115 @@
+.dmapuri_area {
+    padding: 46px 0px;
+    .dmapuri {
+        width: 800px;
+        height: 100%;
+        background-color: rgba(91, 226, 226, 0.35);
+        margin: auto;
+        .title_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            height: 50px;
+            background-color: rgba(91, 226, 226, 0);
+            .title {
+                width: 670px;
+                height: 40px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 40px;
+                text-align: center;
+            }
+        }
+        .subtitle_area1 {
+            padding: 5px 0px;
+            .subtitle_area {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 800px;
+                height: 50px;
+                background-color: rgba(91, 226, 226, 0);
+                .subtitle {
+                    width: 670px;
+                    height: 40px;
+                    background-color: rgba(91, 226, 226, 0);
+                    font-size: 20px;
+                    line-height: 40px;
+                    text-align: center;
+                }
+            }
+        }
+        .massagetitle_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            height: 40px;
+            background-color: rgba(91, 226, 226, 0);
+            .massagetitle {
+                width: 670px;
+                height: 40px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+        .massage_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            height: 100%;
+            background-color: rgba(91, 226, 226, 0);
+            .massage {
+                width: 670px;
+                height: 100%;
+                background-color: rgba(109, 226, 91, 0.441);
+                font-size: 18px;
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+        .post_area1 {
+            padding-top: 20px;
+            .post_area {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 800px;
+                height: 100%;
+                background-color: rgba(91, 226, 226, 0);
+                .post {
+                    width: 670px;
+                    height: 100%;
+                    background-color: rgba(193, 120, 217, 0);
+                    font-size: 18px;
+                    line-height: 30px;
+                    text-align: center;
+                }
+            }
+
+        }
+        
+        .pst_button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .pst_btn {
+                width: 120px;
+                height: 40px;
+                text-align: center;
+            }
+
+        }
+        .back_area {
+            padding-top: 15px;
+            .back {
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+    }
+}

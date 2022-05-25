@@ -1,0 +1,68 @@
+.top {
+    
+    .introduce {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 400px;
+        background-color: rgba(91, 226, 226, 0.35);
+        .introduce_box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .about {
+                font-size: 20px;
+                text-align: center;
+            }
+            .think {                
+                font-size: 20px;
+                text-align: center;
+            }
+
+        }
+        .hello-img {
+            width: 400px;
+            height: 300px;
+        }
+    }
+    .ranking {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(91, 226, 226, 0);
+        margin: auto;
+        padding: 46px 0px;
+        .title_area{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            .title {
+                width: 670px;
+                height: 50px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 35px;
+                line-height: 40px;
+                text-align: center;
+
+
+            }
+        }
+        .post {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            .post1{
+                width: 25%;
+                margin: 3%;
+                text-align: center;
+                align-items: center;
+            }
+        }
+    }
+}

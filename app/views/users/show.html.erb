@@ -1,40 +1,74 @@
 <div class="mypage">
   <div class="mypage_box">
     <div class="profile">
-      <div class="title">
-          <h1>マイページ</h1>
+      <div class="title_area">
+        <div class="title">
+            <h1>マイページ</h1>
+        </div>
       </div>
-        <p>名前 : <%= @user.name %></p>
-        <p>メールアドレス : <%= @user.email %></p>
-        <p>プロフィール : <%= @user.profile %></p>
-        <%= image_tag @user.image_url, size: "200x250" if @user.image? %>
-        <% if current_user.id == @user.id %>
-          <%= link_to "編集する", edit_user_registration_path %>
-        <% end %>
+      <div class="information_area">
+          <div class="picture">
+            <%= image_tag @user.image_url, size: "200x250" if @user.image? %>
+          </div>
+          <div class="information">
+            <p>名前 : <%= @user.name %></p>
+            <p>メールアドレス : <%= @user.email %></p>
+            <p>プロフィール : <%= @user.profile %></p>
+          </div>
+        </div>
+        <div class="button_area">
+          <div class="button">
+            <% if current_user.id == @user.id %>
+              <%= link_to "編集する", edit_user_registration_path %>
+            <% end %>
+          </div>
+        </div>
+        
     </div>
-
-      <h2>ユーザーの投稿一覧</h2>
-      <% @user.gurumes.each do |t| %>
-            <%= t.eatry_name %>
-            <%= t.genre %>
-            <%= t.purpose %>
-            <%= t.price %>
-            <%= t.delicious %>
-            <%= t.access %>
-            <%= t.others %>
-      <% end %>
+    <div class="post_title_area1">
+      <div class="post_title_area">
+        <div class="post_title">
+          <h2>ユーザーの投稿一覧</h2>
+        </div>
+      </div>
+    </div>
+      <div class="post">
+        <% @user.gurumes.each do |t| %>
+          <div class="post1">
+            <p>店の名前：<%= t.eatry_name %></p>
+            <p>ジャンル：<%= t.genre %></p>
+            <p>目的：<%= t.purpose %></p>
+            <p>値段：<%= t.price %>円</p>
+            <p>おいしさ：<%= t.delicious %></p>
+            <p>アクセス：<%= t.access %></p>
+            <p>その他：<%= t.others %></p>
+            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+          </div>
+        <% end %>
+      </div>
 
       <!-- 以下はいいね機能を実装している場合-->
-      <h2>ユーザーがいいねした投稿一覧</h2>
-      <% @user.liked_gurumes.each do |t| %>
-        <%= t.eatry_name %>
-            <%= t.genre %>
-            <%= t.purpose %>
-            <%= t.price %>
-            <%= t.delicious %>
-            <%= t.access %>
-            <%= t.others %>
-      <% end %>
+      <div class="post_title_area1">
+        <div class="post_title_area">
+          <div class="post_title">
+            <h2>ユーザーがいいねした投稿一覧</h2>
+          </div>
+        </div>
+      </div>
+      <div class="post">
+        <% @user.liked_gurumes.each do |t| %>
+          <div class="post1">
+            <p>店の名前：<%= t.eatry_name %></p>
+            <p>ジャンル：<%= t.genre %></p>
+            <p>目的：<%= t.purpose %></p>
+            <p>値段：<%= t.price %>円</p>
+            <p>おいしさ：<%= t.delicious %></p>
+            <p>アクセス：<%= t.access %></p>
+            <p>その他：<%= t.others %></p>
+            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+          </div>
+        <% end %>
+      </div>
       <!-- ここまで-->
 
       <% if @user.id == current_user.id %>
@@ -52,8 +86,6 @@
         <% end %>
       <% end %>
 
-      <%= link_to "ユーザー一覧へ", users_path %>
-
-      <%= link_to "Gurume一覧へ", gurumes_path %>
+      
   </div>
 </div>

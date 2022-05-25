@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    
   </head>
   <body>
     <header>
-      <h1>山の手線gurume</h1>
+      <h1>山の手線グルメ</h1>
       <div class="header-list">
         <% if user_signed_in? %>
-          <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to  gurumes_path, method: :get do %><i class="fas fa-align-justify fa-2x" style="color:white;"></i><% end %></li>
+          <li><%= link_to  new_gurume_path, method: :get do %><i class="fa-solid fa-circle-plus fa-2x" style="color:white;" ></i><% end %></li>
+          <li><%= link_to  user_path(current_user.id), method: :get do %><i class="fa-solid fa-user fa-2x" style="color:white;"></i></i><% end %></li>
+          <li><%= link_to  users_path, method: :get do %><i class="fa-solid fa-comment fa-2x" style="color:white;"></i><% end %></li>
+          <li><%= link_to  destroy_user_session_path, method: :delete do %><i class="fas fa-arrow-right-to-bracket fa-2x" style="color:white;"></i><% end %></li>
         <% else %>
           <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
@@ -26,7 +32,7 @@
       <%= yield %>
     </main>
     <footer>
-      <p>Copyright © GeekSalon All Rights Reserved.</p>
+      <p>Copyright ©  Shin Sata All Rights Reserved.</p>
     </footer>
   </body>
 </html>

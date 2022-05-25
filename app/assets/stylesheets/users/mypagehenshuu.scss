@@ -1,0 +1,80 @@
+.mypagehenshu {
+    width: 100%;
+    padding: 46px 0px;
+    .mypagehenshu_box {
+        width: 900px;
+        height: 100%;
+        background-color: rgba(91, 226, 226, 0.35);
+        margin: auto;
+        .title_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 880px;
+            height: 50px;
+            background-color: rgba(91, 226, 226, 0);
+            .title {
+                width: 670px;
+                height: 40px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 25px;
+                line-height: 40px;
+                text-align: center;
+
+            }
+        }
+        .name_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 900px;
+            height: 550px;
+            background-color: rgba(91, 226, 226, 0);
+            .name {
+                width: 800px;
+                height: 520px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 35px;
+                text-align: center;
+            }
+        }
+        .actions_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 880px;
+            height: 50px;
+            background-color: rgba(91, 226, 226, 0);
+            .actions {
+                width: 670px;
+                height: 50px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 30px;
+                line-height: 40px;
+                text-align: center;
+                .upd_btn {
+                    width: 100px;
+                    height: 30px;
+                }
+            }
+        }
+        .action_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 900px;
+            height: 200px;
+            background-color: rgba(91, 226, 226, 0);
+            .action {
+                width: 670px;
+                height: 150px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 35px;
+                text-align: center;
+            }
+        }
+
+    }
+}

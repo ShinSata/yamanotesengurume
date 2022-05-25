@@ -1,0 +1,53 @@
+.detail_area {
+    padding: 46px 0px;
+    .detail {
+        width: 800px;
+        height: 100%;
+        background-color: rgba(91, 226, 226, 0.35);
+        margin: auto;
+        .title_area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            height: 50px;
+            background-color: rgba(91, 226, 226, 0);
+            .title {
+                width: 670px;
+                height: 40px;
+                background-color: rgba(91, 226, 226, 0);
+                font-size: 20px;
+                line-height: 40px;
+                text-align: center;
+            }
+        }
+        .gurume_area {
+            padding: 30px 0px;
+            .gurume {
+                width: 800px;
+                height: 100%;
+                background-color: rgba(154, 91, 226, 0);
+                font-size: 20px;
+                line-height: 40px;
+                text-align: center;
+            }
+        }
+        .fabo {
+            font-size: 20px;
+            text-align: center;
+        }
+        .comment {
+            padding: 30px 0px;
+            .comment-wrapper {
+                font-size: 20px;
+                text-align: center;
+            }
+
+        }
+        .back {
+            font-size: 20px;
+            text-align: center;
+        }
+        
+    }
+}

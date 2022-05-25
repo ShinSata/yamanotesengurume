@@ -1,67 +1,122 @@
-<h1>新規グルメ投稿</h1>
-<%= form_for @gurume do |f| %>
-  
-  <div class="field">
-    <%= f.label :店の名前 %>
-    <%= f.text_field :eatry_name, :size => 30 %>
+<div class="newpost_area">
+  <div class="newpost">
+    <div class="title_area">
+      <div class="title">
+        <h1>新規グルメ投稿ページ</h1>
+      </div>
+    </div>
+    <%= form_for @gurume do |f| %>
+      <div class="postcolumn_area">
+        <div class="postcolumn">
+            <div class="field">
+              <div class="c">
+                <%= f.label :店の名前 %>
+              </div>
+              <div class="d">
+                <%= f.text_field :eatry_name, :size => 30 %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="c">
+                <%= f.label :ジャンル %>
+              </div>
+              <div class="d">
+                <%= f.text_field :genre, :size => 30 %>
+              </div>
+            </div>
+
+            <div class="field">
+            <div class="c2">
+              <%= f.label :目的 %>
+            </div>
+            <div class="d">
+              <%= f.select :purpose, [["朝", "朝"], 
+              ["昼", "昼"],
+              ["お菓子", "お菓子"],
+              ["夜", "夜"]], include_blank: "選択して下さい" %>
+            </div>
+            </div>
+
+            <div class="field">
+              <div class="c">
+                <%= f.label :値段 %>
+              </div>
+              <div class="d">
+                <%= f.text_field :price, :size => 30 %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="c1">
+                <%= f.label :おいしさ %>
+              </div>
+              <div class="d">
+                <%= f.number_field :delicious, min: 1, max: 10 %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="c">
+                <%= f.label :アクセス %>
+              </div>
+              <div class="d">
+                <%= f.text_field :access, :size => 30 %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="c">
+                <%= f.label :その他 %>
+              </div>
+              <div class="d">
+                <%= f.text_area :others, :size => "35x5" %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="c">
+                <%= f.label :写真 %>
+              </div>
+              <div class="d">
+                <%= f.file_field :image %>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="c3">
+                <%= f.label :星評価 %>
+              </div>
+              <div class="d">
+                <div class="star-field">
+                  <input id="star5" type="radio" name="gurume[star]" value="5" />
+                  <label for="star5">★</label>
+                  <input id="star4" type="radio" name="gurume[star]" value="4" />
+                  <label for="star4">★</label>
+                  <input id="star3" type="radio" name="gurume[star]" value="3" />
+                  <label for="star3">★</label>
+                  <input id="star2" type="radio" name="gurume[star]" value="2" />
+                  <label for="star2">★</label>
+                  <input id="star1" type="radio" name="gurume[star]" value="1" />
+                  <label for="star1">★</label>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="button_area">
+        <div class="button">
+          <%= f.submit "グルメを投稿する",class: 'pst_btn' %>
+        </div>
+      </div>
+
+      
+    <% end %>
+    <div class="back_area">
+      <div class="back">
+        <%= link_to "Gurume一覧に戻る", gurumes_path %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :ジャンル %>
-    <%= f.text_field :genre, :size => 30 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :目的 %>
-    <%= f.select :purpose, [["朝", "朝"], 
-    ["昼", "昼"],
-    ["お菓子", "お菓子"],
-    ["夜", "夜"]], include_blank: "選択して下さい" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :値段 %>
-    <%= f.text_field :price, :size => 30 %>
-  </div>
-
-  <div class="field">
-  <%= f.label :おいしさ %>
-  <%= f.number_field :delicious, min: 1, max: 10 %>
 </div>
-
-<div class="field">
-    <%= f.label :アクセス %>
-    <%= f.text_field :access, :size => 30 %>
-</div>
-
-  <div class="field">
-  <%= f.label :others %>
-  <%= f.text_area :others, :size => "40x5" %>
-</div>
-
-<div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-</div>
-
-
-<%= f.label :星評価 %>
-<div class="star-field">
-    <input id="star5" type="radio" name="gurume[star]" value="5" />
-    <label for="star5">★</label>
-    <input id="star4" type="radio" name="gurume[star]" value="4" />
-    <label for="star4">★</label>
-    <input id="star3" type="radio" name="gurume[star]" value="3" />
-    <label for="star3">★</label>
-    <input id="star2" type="radio" name="gurume[star]" value="2" />
-    <label for="star2">★</label>
-    <input id="star1" type="radio" name="gurume[star]" value="1" />
-    <label for="star1">★</label>
-</div>
-
-
-  
-  <%= f.submit "Gurumeを投稿する" %>
-<% end %>
-
-<%= link_to "Gurume一覧に戻る", gurumes_path %>

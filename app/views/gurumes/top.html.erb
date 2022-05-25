@@ -1,27 +1,48 @@
-<h1>山手線gurume</h1>
-<br>このサイトは山手線を利用する人が
-<br>駅で降りた時に迷わずに店を決めてもらいたい
-<br>山手線周辺のおいしい料理を分かち合って欲しい
-<br>山手線周辺にどのような店があるのか知ってもらいたい
-<br>という思いを込めて作りました
-
-<h3>ランキング</h3>
-    <% @rank_gurumes.each.with_index(1) do |t, i| %>
-        <p>第<%= i %>位</p>
-        <%= t.eatry_name %>
-        <%= t.genre %>
-        <%= t.purpose %>
-        <%= t.price %>
-        <%= t.delicious %>
-        <%= t.access %>
-        <%= t.others %>
-        <div class="star">
-        <%= image_tag t.image_url, size: "250x200" if t.image? %>
-      <% if t.star? %>
-        <% for i in 1..t.star do %>
-          ★
-        <% end %>
-      <% end %>
+<div class="top">
+  <div class="introduce">
+    <div class="introduce_box">
+      <div class="about">
+          <h2>About</h2>
+          山の手線周辺のグルメを自由に投稿できるサイト
+      </div>
+      <div class="think">
+        <br>このサイトは山手線を利用する人が
+        <br>駅で降りた時に迷わずに店を決めてもらいたい
+        <br>山手線周辺のおいしい料理を分かち合って欲しい
+        <br>山手線周辺にどのような店があるのか知ってもらいたい
+        <br>という思いを込めて作りました
+      </div>
     </div>
-    <%= t.created_at %>
-    <% end %>
+    <img src="/assets/image1.jpg" alt="", class="hello-img">
+  </div>
+
+  <div class="ranking">
+    <div class="title_area">
+      <div class="title">
+        <h3>いいね数ランキング</h3>
+      </div>
+    </div>
+    <div class="post">
+        <% @rank_gurumes.each.with_index(1) do |t, i| %>
+          <div class="post1">
+            <p>第<%= i %>位</p>
+            <p>店の名前：<%= t.eatry_name %></p>
+            <p>ジャンル：<%= t.genre %></p>
+            <p>目的：<%= t.purpose %></p>
+            <p>値段：<%= t.price %>円</p>
+            <p>おいしさ：<%= t.delicious %></p>
+            <p>アクセス：<%= t.access %></p>
+            <p>その他：<%= t.others %></p>
+            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+            <div class="star">
+              <% if t.star? %>
+                <% for i in 1..t.star do %>
+                  ★
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
