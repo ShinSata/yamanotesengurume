@@ -12,7 +12,7 @@ class GurumesController < ApplicationController
       else
           #部分検索かつ複数検索
           search = params[:search]
-          @gurumes = Gurume.where("eatry_name LIKE ? OR genre LIKE ? OR purpose LIKE ? OR price LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").page(params[:page]).per(3)
+          @gurumes = Gurume.where("eatry_name LIKE ? OR genre LIKE ? OR purpose LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%").page(params[:page]).per(3)
       end
       @rank_gurumes = Gurume.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}.first(3)
     end
