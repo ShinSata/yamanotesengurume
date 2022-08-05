@@ -3,7 +3,12 @@
     <div class="profile">
       <div class="title_area">
         <div class="title">
-            <h1>マイページ</h1>
+        <% if current_user.id == @user.id %>
+              <h1>マイページ</h1>
+        <% else %>
+              <h1>投稿者ページ</h1>
+        <% end %>
+            
         </div>
       </div>
       <div class="information_area">

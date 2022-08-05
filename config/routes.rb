@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
-  patch 'gurumes/:id' => 'gurumes#update'
-  delete 'gurumes/:id' => 'gurumes#destroy'
-  get 'gurumes/:id/edit' => 'gurumes#edit', as:'edit_gurumes'
+  
   root 'gurumes#top'
 end
