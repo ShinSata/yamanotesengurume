@@ -2,33 +2,36 @@
     width: 100%;
     background-color: aliceblue;
     padding: 46px 0px;
+    background-image: url("image2.jpg");
+    background-size: cover;
+    opacity: 0.9;
     .sign_up_box {
         width: 880px;
-        height: 400px;
-        background-color: rgba(91, 226, 226, 0.35);
+        height: auto;
+        padding: 30px;
+        background-color: rgb(91, 226, 226);
         margin: auto;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    
-        
 
     .title_area{
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-bottom: 20px;
         width: 880px;
-        height: 50px;
+        height: auto;
         background-color: rgba(91, 226, 226, 0);
         .title{
             width: 670px;
-            height: 40px;
+            height: auto;
             background-color: rgba(91, 226, 226, 0);
             font-size: 25px;
             line-height: 40px;
             text-align: center;
+            font: bold;
         }
     }
     .name_area{
@@ -36,14 +39,25 @@
         justify-content: center;
         align-items: center;
         width: 880px;
-        height: 280px;
+        height: auto;
+        padding-bottom: 20px;
         background-color: rgba(91, 226, 226, 0);
         .name{
             width: 670px;
-            height: 250px;
+            height: auto;
             background-color: rgba(91, 226, 226, 0);
             font-size: 25px;
             line-height: 60px;
+            h2 {
+                text-align: center;
+            }
+            ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+            }
             .field {
                 display: flex;
                 .c {
@@ -60,11 +74,11 @@
         justify-content: center;
         align-items: center;
         width: 880px;
-        height: 50px;
+        height: auto;
         background-color: rgba(91, 226, 226, 0);
         .actions{
             width: 670px;
-            height: 50px;
+            height: auto;
             background-color: rgba(91, 226, 226, 0);
             font-size: 30px;
             line-height: 30px;

@@ -86,9 +86,21 @@
       </div>
     </div>
     <div class="post">
+      <% last_like = 0 %>
+      <% j = 1 %>
       <% @rank_gurumes.each.with_index(1) do |t, i| %>
         <div class="post1">
-          <p>第<%= i %>位</p>
+          <% if i == 1 %>
+            <% last_like = t.likes.count %>
+          <% end %>
+          <% if t.likes.count != last_like %>
+            <% j = i %>
+            第<%= j %>位
+            <% last_like = t.likes.count %>
+          <% else %>
+            <% last_like = t.likes.count %>
+            第<%= j %>位
+          <% end %>
           <p>店の名前：<%= t.eatry_name %></p>
             <p>ジャンル：<%= t.genre %></p>
             <p>目的：<%= t.purpose %></p>

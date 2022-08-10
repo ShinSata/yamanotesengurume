@@ -16,7 +16,6 @@ class GurumesController < ApplicationController
       end
       @rank_gurumes = Gurume.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}.first(3)
     end
-
     
       def new
         @gurume = Gurume.new
