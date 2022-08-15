@@ -23,25 +23,83 @@
       </div>
     </div>
     <div class="post">
+      <% last_like = 0 %>
+      <% j = 1 %>
         <% @rank_gurumes.each.with_index(1) do |t, i| %>
-          <div class="post1">
-            <p>第<%= i %>位</p>
-            <p>店の名前：<%= t.eatry_name %></p>
-            <p>ジャンル：<%= t.genre %></p>
-            <p>目的：<%= t.purpose %></p>
-            <p>値段：<%= t.price %>円</p>
-            <p>おいしさ：<%= t.delicious %></p>
-            <p>アクセス：<%= t.access %></p>
-            <p>その他：<%= t.others %></p>
-            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
-            <div class="star">
-              <% if t.star? %>
-                <% for i in 1..t.star do %>
-                  ★
+          <% if i == 1 %>
+            <% last_like = t.likes.count %>
+          <% end %>
+          <% if t.likes.count != last_like %>
+            <% j = i %>
+            <% last_like = t.likes.count %>
+          <% else %>
+            <% last_like = t.likes.count %>
+          <% end %>
+          <% if j == 1 %>
+            <div class="post1">
+              <p>第<%= j %>位</p>
+              <p>店の名前：<%= t.eatry_name %></p>
+              <p>ジャンル：<%= t.genre %></p>
+              <p>目的：<%= t.purpose %></p>
+              <p>値段：<%= t.price %>円</p>
+              <p>おいしさ：<%= t.delicious %></p>
+              <p>アクセス：<%= t.access %></p>
+              <p>その他：<%= t.others %></p>
+              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <p>星評価：
+              <div class="star">
+                <% if t.star? %>
+                  <% for i in 1..t.star do %>
+                    ★
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+              </p>
             </div>
-          </div>
+          <% elsif j == 2 %>                
+            <div class="post2">
+              <p>第<%= j %>位</p>
+              <p>店の名前：<%= t.eatry_name %></p>
+              <p>ジャンル：<%= t.genre %></p>
+              <p>目的：<%= t.purpose %></p>
+              <p>値段：<%= t.price %>円</p>
+              <p>おいしさ：<%= t.delicious %></p>
+              <p>アクセス：<%= t.access %></p>
+              <p>その他：<%= t.others %></p>
+              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <p>星評価：
+              <div class="star">
+                <% if t.star? %>
+                  <% for i in 1..t.star do %>
+                    ★
+                  <% end %>
+                <% end %>
+              </div>
+              </p>
+            </div>
+          <% else %>
+            <div class="post3">
+              <p>第<%= j %>位</p>
+              <p>店の名前：<%= t.eatry_name %></p>
+              <p>ジャンル：<%= t.genre %></p>
+              <p>目的：<%= t.purpose %></p>
+              <p>値段：<%= t.price %>円</p>
+              <p>おいしさ：<%= t.delicious %></p>
+              <p>アクセス：<%= t.access %></p>
+              <p>その他：<%= t.others %></p>
+              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <p>星評価：
+              <div class="star">
+                <% if t.star? %>
+                  <% for i in 1..t.star do %>
+                    ★
+                  <% end %>
+                <% end %>
+              </div>
+              </p>
+            </div>
+          <% end %>
+            
         <% end %>
     </div>
   </div>

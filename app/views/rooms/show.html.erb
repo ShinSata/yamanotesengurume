@@ -2,30 +2,26 @@
   <div class="dmapuri">
     <div class="title_area">
       <div class="title">
-        <h1>DM</h1>
-      </div>
-    </div>
-    <div class="subtitle_area1">
-      <div class="subtitle_area">
-        <div class="subtitle">
-          <h4>参加者：<% @entries.each do |e| %>
-            <a href="/users/<%= e.user.id %>"><%= e.user.name%>さん</a>
-          <% end %></h4>
-        </div>
-      </div>
-    </div>
-    <div class="massagetitle_area">
-      <div class="massagetitle">
-        <h5>メッセージ</h5>
+      <%= link_to  users_path, method: :get do %><i class="fa-solid fa-angle-left fa-3x" style="color:black;"></i><% end %>
+        <h1>メッセージ</h1>
       </div>
     </div>
     <div class="massage_area">
       <div class="massage">
       <% if @messages.present? %>
         <% @messages.each do |m| %>
-          <strong><%= m.content %></strong>
-          <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
-          <hr>
+          <% if current_user.id == m.user_id %>
+            <div class="massage1">
+              <strong><%= m.content %><br></strong>
+            </div>
+          <% else %>
+          <div class="hojo">
+          <a href="/users/<%= m.user_id %>"><%= m.user.name %></a>
+          </div>  
+            <div class="massage2">
+              <strong><%= m.content %></strong>
+            </div>
+          <% end %>
         <% end %>
       <% else %>
         <h3 class="text-center">メッセージはまだありません</h3>
@@ -33,24 +29,20 @@
       </div>
     </div>
     <%= form_for @message do |f| %>
-    <div class="post_area1">
-      <div class="post_area">
-        <div class="post">
-          <%= f.text_area :content, :placeholder => "メッセージを入力して下さい" , :size => "70x4" %>
-          <%= f.hidden_field :room_id, :value => @room.id %>
+      <div class="post_area1">
+        <%= f.text_field :content, class: "field_input", :placeholder => "メッセージを入力" %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+          
+        
+      
+        <div class="pst_button">
+          <%= button_tag type: "submit" do %>
+            <i class="fa-solid fa-paper-plane fa-3x" style="color:blue;"></i>
+          <% end %>
         </div>
-      </div>
-    </div>
-      <div class="pst_button">
-        <%= f.submit "送信する",class: 'pst_btn' %>
       </div>
       
     <% end %>
     
-    <div class="back_area">
-      <div class="back">
-        <%= link_to "ユーザー一覧に戻る", users_path %>
-      </div>
-    </div>
   </div>
 </div>

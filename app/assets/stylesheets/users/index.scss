@@ -1,5 +1,6 @@
 .dm_area {
     padding: 46px 0px;
+    background-color: rgba(213, 212, 159, 0.35);
     .dm {
         width: 800px;
         height: 100%;
@@ -55,7 +56,10 @@
             .chatname {
                 font-size: 20px;
                 text-align: center;
-                
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
                 
                 a:hover {
                     color: crimson;

@@ -56,13 +56,28 @@
             flex-direction: row;
             width: 100%;
             flex-wrap: wrap;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             .post1{
                 width: 25%;
                 margin: 3%;
                 text-align: center;
                 align-items: center;
+                background-color: rgb(255, 204, 18);
+            }
+            .post2 {
+                width: 25%;
+                margin: 3%;
+                text-align: center;
+                align-items: center;
+                background-color: darkgrey;
+            }
+            .post3 {
+                width: 25%;
+                margin: 3%;
+                text-align: center;
+                align-items: center;
+                background-color: coral;
             }
         }
     }

@@ -19,7 +19,7 @@
       <% @users.each do |u| %>
         <div class="chatname_area">
           <div class="chatname">
-            <p><li><a href="/users/<%= u.id %>"><%= u.email %>さん</a></li></p>
+            <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
           </div>
         </div>
       <% end %>
