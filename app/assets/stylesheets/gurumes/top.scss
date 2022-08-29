@@ -22,10 +22,48 @@
             }
 
         }
-        .hello-img {
-            width: 400px;
+        .slide {
+            position: relative;
+            width: 40%;
             height: 300px;
-            opacity: 0.9;
+            overflow: hidden;
+        }
+        
+        @keyframes slideshow{
+        0%{
+            opacity: 0;
+        }
+        10%{
+            opacity: 1;
+        }
+        28%{
+            opacity: 1
+        }
+        38%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+        }
+        
+        .slide img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        animation :slideshow 24s linear infinite;
+        }
+        
+        .slide img:nth-child(2){
+        animation-delay: 8s;
+        }
+        
+        .slide img:last-child{
+        animation-delay: 16s;
         }
     }
     .ranking {
