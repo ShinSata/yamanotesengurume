@@ -55,6 +55,6 @@ class GurumesController < ApplicationController
 
     private
   def gurume_params
-    params.require(:gurume).permit(:eatry_name, :genre, :adress, :purpose, :price, :delicious, :access, :others, :image, :star,)
+    params.require(:gurume).permit(:eatry_name, :genre, :adress, :purpose, :price, :delicious, :access, :others, :star, :image)
   end
 end

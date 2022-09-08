@@ -11,13 +11,15 @@
       <% if @messages.present? %>
         <% @messages.each do |m| %>
           <% if current_user.id == m.user_id %>
+          <%= m.created_at.to_s(:datetime_jp) %>
             <div class="massage1">
               <strong><%= m.content %><br></strong>
             </div>
           <% else %>
           <div class="hojo">
           <a href="/users/<%= m.user_id %>"><%= m.user.name %></a>
-          </div>  
+          </div>
+          <%= m.created_at.to_s(:datetime_jp) %>
             <div class="massage2">
               <strong><%= m.content %></strong>
             </div>

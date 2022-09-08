@@ -14,7 +14,11 @@
         <p>おいしさ：<%= @gurume.delicious %></p>
         <p>アクセス：<%= @gurume.access %></p>
         <p>その他：<%= @gurume.others %></p>
-        <%= image_tag @gurume.image_url, size: "250x200" if @gurume.image? %>
+        <% if @gurume.image.present? %>
+          <p><%= image_tag @gurume.image_url, size: "200x200" if @gurume.image? %></p>
+        <% else %>
+          <p><%= image_tag "noimage.png", size: "200x200" %></p>
+        <% end %>
         <p><div class="star">
           <% if @gurume.star? %>
             <% for i in 1..@gurume.star do %>

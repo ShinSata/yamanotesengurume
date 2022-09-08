@@ -41,7 +41,12 @@
             <p>おいしさ：<%= t.delicious %></p>
             <p>アクセス：<%= t.access %></p>
             <p>その他：<%= t.others %></p>
-            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+            <p>その他：<%= t.created_at.to_s(:datetime_jp) %></p>
+            <% if t.image.present? %>
+              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+            <% else %>
+              <p><%= image_tag "noimage.png", size: "200x200" %></p>
+            <% end %>
             <p>星評価：
             <div class="star">
               <% if t.star? %>
