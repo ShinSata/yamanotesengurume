@@ -53,12 +53,16 @@
     <div class="comment">
       <div class="comment-wrapper">
         <p>コメント一覧</p>
+        <%= flash[:success] %>
         <% @comments.each do |c| %>
           <div>
             <%= c.user.email unless c.user.blank? %>
             <br>
             <%= c.content %>
           </div>
+          <% if user_signed_in? && current_user.id == c.user_id %>
+          <%= button_to "削除する", gurume_comment_path(c.id), method: :delete %>
+          <% end %>
             <br>
         <% end %>
 
