@@ -25,6 +25,9 @@ class GurumesController < ApplicationController
         gurume = Gurume.new(gurume_params)
         gurume.user_id = current_user.id
         if gurume.save
+          params[:gurume][:images]&.each do |image|
+            Image.create!(image: image, gurume_id: gurume.id)
+          end
           redirect_to :action => "index"
         else
           redirect_to :action => "new"

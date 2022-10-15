@@ -49,7 +49,13 @@
               <p>おいしさ：<%= t.delicious %></p>
               <p>アクセス：<%= t.access %></p>
               <p>その他：<%= t.others %></p>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <% if t.images.present? %>
+                <% t.images.each do |image| %>
+                  <%= image_tag image.image_url, size: "250x200" %>
+                <% end %>
+              <% else %>
+                <p><%= image_tag "noimage.png", size: "200x200" %></p>
+              <% end %>
               <p>星評価：
               <div class="star">
                 <% if t.star? %>
@@ -70,7 +76,13 @@
               <p>おいしさ：<%= t.delicious %></p>
               <p>アクセス：<%= t.access %></p>
               <p>その他：<%= t.others %></p>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <% if t.images.present? %>
+                <% t.images.each do |image| %>
+                  <%= image_tag image.image_url, size: "250x200" %>
+                <% end %>
+              <% else %>
+                <p><%= image_tag "noimage.png", size: "200x200" %></p>
+              <% end %>
               <p>星評価：
               <div class="star">
                 <% if t.star? %>
@@ -91,7 +103,13 @@
               <p>おいしさ：<%= t.delicious %></p>
               <p>アクセス：<%= t.access %></p>
               <p>その他：<%= t.others %></p>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <% if t.images.present? %>
+                <% t.images.each do |image| %>
+                  <%= image_tag image.image_url, size: "250x200" %>
+                <% end %>
+              <% else %>
+                <p><%= image_tag "noimage.png", size: "200x200" %></p>
+              <% end %>
               <p>星評価：
               <div class="star">
                 <% if t.star? %>

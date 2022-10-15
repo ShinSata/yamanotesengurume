@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_044131) do
+ActiveRecord::Schema.define(version: 2022_09_24_084438) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2022_04_17_044131) do
     t.integer "star"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.integer "gurume_id"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gurume_id"], name: "index_images_on_gurume_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "gurume_id", null: false
     t.integer "user_id", null: false
@@ -63,6 +71,16 @@ ActiveRecord::Schema.define(version: 2022_04_17_044131) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -87,6 +105,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_044131) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.integer "sign_in_count"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -99,4 +118,6 @@ ActiveRecord::Schema.define(version: 2022_04_17_044131) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
 end

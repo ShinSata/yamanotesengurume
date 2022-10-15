@@ -28,7 +28,7 @@
             <% end %>
           </div>
         </div>
-        
+        <%= render 'relationships/follow_button', user: @user %>
     </div>
     <div class="post_title_area1">
       <div class="post_title_area">
@@ -47,12 +47,16 @@
             <p>おいしさ：<%= t.delicious %></p>
             <p>アクセス：<%= t.access %></p>
             <p>その他：<%= t.others %></p>
-            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+            <% if t.images.present? %>
+              <% t.images.each do |image| %>
+                <%= image_tag image.image_url, size: "250x200" %>
+              <% end %>
+            <% else %>
+              <p><%= image_tag "noimage.png", size: "200x200" %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
-
-      <!-- 以下はいいね機能を実装している場合-->
       <div class="post_title_area1">
         <div class="post_title_area">
           <div class="post_title">
@@ -70,12 +74,20 @@
             <p>おいしさ：<%= t.delicious %></p>
             <p>アクセス：<%= t.access %></p>
             <p>その他：<%= t.others %></p>
-            <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+            <% if t.images.present? %>
+              <% t.images.each do |image| %>
+                <%= image_tag image.image_url, size: "250x200" %>
+              <% end %>
+            <% else %>
+              <p><%= image_tag "noimage.png", size: "200x200" %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
-      <!-- ここまで-->
-
+      <h2>フォロー</h2>
+        <% @user.relationships.each do |u| %>
+            <p><a href="/users/<%= u.follow_id %>"><%= u.follow_id %>さん</a></p>
+        <% end %>
       <% if @user.id == current_user.id %>
 
       <% else %>

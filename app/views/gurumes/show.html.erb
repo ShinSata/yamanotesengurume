@@ -15,7 +15,9 @@
         <p>アクセス：<%= @gurume.access %></p>
         <p>その他：<%= @gurume.others %></p>
         <% if @gurume.image.present? %>
-          <p><%= image_tag @gurume.image_url, size: "200x200" if @gurume.image? %></p>
+          <% @gurume.images.each do |image| %>
+            <p><%= image_tag image.image_url, size: "250x200" %></p>
+          <% end %>
         <% else %>
           <p><%= image_tag "noimage.png", size: "200x200" %></p>
         <% end %>

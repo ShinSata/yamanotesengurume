@@ -42,8 +42,10 @@
             <p>アクセス：<%= t.access %></p>
             <p>その他：<%= t.others %></p>
             <p>その他：<%= t.created_at.to_s(:datetime_jp) %></p>
-            <% if t.image.present? %>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+            <% if t.images.present? %>
+              <% t.images.each do |image| %>
+                <%= image_tag image.image_url, size: "250x200" %>
+              <% end %>
             <% else %>
               <p><%= image_tag "noimage.png", size: "200x200" %></p>
             <% end %>
@@ -75,6 +77,8 @@
               <%= link_to "詳細へ", gurume_path(t.id) %>
               <% if user_signed_in? && current_user.id == t.user_id %>
                 <%= link_to "編集する", edit_gurume_path(t.id) %>
+              <% end %>
+              <% if current_user.admin? %>
                 <%= button_to "削除する", gurume_path(t.id), method: :delete %>
               <% end %>
             </div>
@@ -115,7 +119,13 @@
               <p>おいしさ：<%= t.delicious %></p>
               <p>アクセス：<%= t.access %></p>
               <p>その他：<%= t.others %></p>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <% if t.images.present? %>
+                <% t.images.each do |image| %>
+                  <%= image_tag image.image_url, size: "250x200" %>
+                <% end %>
+              <% else %>
+                <p><%= image_tag "noimage.png", size: "200x200" %></p>
+              <% end %>
               <p>星評価：
               <div class="star">
                 <% if t.star? %>
@@ -136,7 +146,13 @@
               <p>おいしさ：<%= t.delicious %></p>
               <p>アクセス：<%= t.access %></p>
               <p>その他：<%= t.others %></p>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <% if t.images.present? %>
+                <% t.images.each do |image| %>
+                  <%= image_tag image.image_url, size: "250x200" %>
+                <% end %>
+              <% else %>
+                <p><%= image_tag "noimage.png", size: "200x200" %></p>
+              <% end %>
               <p>星評価：
               <div class="star">
                 <% if t.star? %>
@@ -157,7 +173,13 @@
               <p>おいしさ：<%= t.delicious %></p>
               <p>アクセス：<%= t.access %></p>
               <p>その他：<%= t.others %></p>
-              <p><%= image_tag t.image_url, size: "200x200" if t.image? %></p>
+              <% if t.images.present? %>
+                <% t.images.each do |image| %>
+                  <%= image_tag image.image_url, size: "250x200" %>
+                <% end %>
+              <% else %>
+                <p><%= image_tag "noimage.png", size: "200x200" %></p>
+              <% end %>
               <p>星評価：
               <div class="star">
                 <% if t.star? %>
