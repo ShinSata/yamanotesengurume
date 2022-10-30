@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :gurumes do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
+    resources :bookmarks, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
   root 'gurumes#top'

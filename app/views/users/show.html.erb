@@ -84,13 +84,40 @@
           </div>
         <% end %>
       </div>
+      <div class="post_title_area1">
+        <div class="post_title_area">
+          <div class="post_title">
+            <h2>ユーザーがブックマークした投稿一覧</h2>
+          </div>
+        </div>
+      </div>
+      <div class="post">
+        <% @user.bookmarked_gurumes.each do |t| %>
+          <div class="post1">
+            <p>店の名前：<%= t.eatry_name %></p>
+            <p>ジャンル：<%= t.genre %></p>
+            <p>目的：<%= t.purpose %></p>
+            <p>値段：<%= t.price %>円</p>
+            <p>おいしさ：<%= t.delicious %></p>
+            <p>アクセス：<%= t.access %></p>
+            <p>その他：<%= t.others %></p>
+            <% if t.images.present? %>
+              <% t.images.each do |image| %>
+                <%= image_tag image.image_url, size: "250x200" %>
+              <% end %>
+            <% else %>
+              <p><%= image_tag "noimage.png", size: "200x200" %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
       <h2>フォロー</h2>
-        <% @user.relationships.each do |u| %>
-            <p><a href="/users/<%= u.follow_id %>"><%= u.follow_id %>さん</a></p>
+        <% @user.followings.each do |u| %>
+          <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
         <% end %>
         <h2>フォロワー</h2>
-        <% @user.relationships.each do |u| %>
-            <p><a href="/users/<%= u.user_id %>"><%= u.user_id %>さん</a></p>
+        <% @user.followers.each do |u| %>
+          <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
         <% end %>
       <% if @user.id == current_user.id %>
 

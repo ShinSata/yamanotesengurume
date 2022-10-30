@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_24_084438) do
+ActiveRecord::Schema.define(version: 2022_10_30_095529) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "gurume_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gurume_id"], name: "index_bookmarks_on_gurume_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -110,6 +119,8 @@ ActiveRecord::Schema.define(version: 2022_09_24_084438) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "gurumes"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "gurumes"
   add_foreign_key "comments", "users"
   add_foreign_key "entries", "rooms"

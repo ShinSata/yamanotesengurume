@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :gurumes, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_gurumes, through: :likes, source: :gurume
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_gurumes, through: :bookmarks, source: :gurume
   has_many :comments, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
@@ -24,6 +26,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
   def already_liked?(gurume)
     self.likes.exists?(gurume_id: gurume.id)
+  end
+  def already_bookmarked?(gurume)
+    self.bookmarks.exists?(gurume_id: gurume.id)
   end
 
   def follow(other_user)

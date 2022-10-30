@@ -58,6 +58,19 @@
               <% end %>
             </div>
             </p>
+            <% if user_signed_in? %>
+                <% if current_user.already_bookmarked?(t) %>
+                    <%= link_to gurume_bookmark_path(id: t.id, gurume_id: t.id), method: :delete do %>
+                        <i class="fa-solid fa-bookmark fa-2x" style="color:yellow;"></i><%= t.bookmarks.count %>
+                    <% end %>
+                <% else %>
+                    <%= link_to gurume_bookmarks_path(id: t.id, gurume_id: t.id), method: :post do %>
+                        <i class="fa-solid fa-bookmark fa-2x" style="color:white;"></i><%= t.bookmarks.count %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <i class="fa-solid fa-bookmark fa-2x" style="color:white;"></i><%= t.bookmarks.count %>
+            <% end %>
               
               <% if user_signed_in? %>
                       <% if current_user.already_liked?(t) %>
