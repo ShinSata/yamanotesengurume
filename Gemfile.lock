@@ -270,6 +270,7 @@ GEM
     zeitwerk (2.6.1)
 
 PLATFORMS
+  x64-mingw
   x64-mingw-ucrt
 
 DEPENDENCIES
@@ -301,4 +302,4 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 BUNDLED WITH
-   2.3.8
+   2.3.24

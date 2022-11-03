@@ -14,7 +14,7 @@
         <p>おいしさ：<%= @gurume.delicious %></p>
         <p>アクセス：<%= @gurume.access %></p>
         <p>その他：<%= @gurume.others %></p>
-        <% if @gurume.image.present? %>
+        <% if @gurume.images.present? %>
           <% @gurume.images.each do |image| %>
             <p><%= image_tag image.image_url, size: "250x200" %></p>
           <% end %>
@@ -28,6 +28,10 @@
             <% end %>
           <% end %>
         </div></p>
+        <% @gurume_tags.each do |tag| %>
+          #<%= link_to tag.tag_name, tag_gurumes_path(tag_id: tag.id) %>
+          <%= "(#{tag.gurumes.count})" %>
+        <% end %>
         <% if user_signed_in? %>
             <% if current_user.already_bookmarked?(@gurume) %>
               <%= link_to gurume_bookmark_path(@gurume), method: :delete do %>

@@ -78,8 +78,12 @@
               <%= f.label :写真 %>
             </div>
             <div class="d">
-              <%= f.file_field :image %>
+              <%= f.file_field :images, multiple: true %>
             </div>
+          </div>
+          <div class="field">
+              <%= f.label"タグ (スペースで区切ると複数タグ登録できます)" %>
+              <%= f.text_field :tag_name, value: @tag_list,class:"form-control"%>
           </div>
           <div class="field">
             <div class="c3">

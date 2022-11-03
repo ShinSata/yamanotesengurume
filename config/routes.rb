@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
+  resources :tags do
+    get 'gurumes', to: 'gurumes#search'
+  end
   root 'gurumes#top'
 end

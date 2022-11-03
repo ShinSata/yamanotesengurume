@@ -16,6 +16,11 @@
           <%= submit_tag '検索する' , class: 'sea_btn' %>
         </div>
       <% end %>
+      <h3>タグリスト</h3>
+      <% @tag_list.each do |list| %>
+        #<%= link_to list.tag_name, tag_gurumes_path(tag_id: list.id) %>
+        <%= "(#{list.gurumes.count})" %>
+      <% end %>
       
       
       
@@ -58,13 +63,16 @@
               <% end %>
             </div>
             </p>
+            <% t.tags.each do |tag| %>
+                #<%= link_to tag.tag_name, tag_gurumes_path(tag_id: tag.id) %>
+            <% end %>
             <% if user_signed_in? %>
                 <% if current_user.already_bookmarked?(t) %>
                     <%= link_to gurume_bookmark_path(id: t.id, gurume_id: t.id), method: :delete do %>
                         <i class="fa-solid fa-bookmark fa-2x" style="color:yellow;"></i><%= t.bookmarks.count %>
                     <% end %>
                 <% else %>
-                    <%= link_to gurume_bookmarks_path(id: t.id, gurume_id: t.id), method: :post do %>
+                    <%= link_to gurume_bookmarks_path(id: t.id, gurume_id: t.id), method: :gurume do %>
                         <i class="fa-solid fa-bookmark fa-2x" style="color:white;"></i><%= t.bookmarks.count %>
                     <% end %>
                 <% end %>
@@ -78,7 +86,7 @@
                             <i class="fas fa-heart fa-2x" style="color:red;"></i><%= t.likes.count %>
                           <% end %>
                       <% else %>
-                          <%= link_to gurume_likes_path(id: t.id, gurume_id: t.id), method: :post do %>
+                          <%= link_to gurume_likes_path(id: t.id, gurume_id: t.id), method: :gurume do %>
                             <i class="far fa-heart fa-2x" style="color:black;"></i><%= t.likes.count %>
                           <% end %>
                       <% end %>
@@ -109,7 +117,7 @@
         <h3>いいね数ランキング</h3>
       </div>
     </div>
-    <div class="post">
+    <div class="gurume">
       <% last_like = 0 %>
       <% j = 1 %>
       <% @rank_gurumes.each.with_index(1) do |t, i| %>
@@ -123,7 +131,7 @@
             <% last_like = t.likes.count %>
           <% end %>
           <% if j == 1 %>
-            <div class="post1">
+            <div class="gurume1">
               <p>第<%= j %>位</p>
               <p>店の名前：<%= t.eatry_name %></p>
               <p>ジャンル：<%= t.genre %></p>
@@ -150,7 +158,7 @@
               </p>
             </div>
           <% elsif j == 2 %>                
-            <div class="post2">
+            <div class="gurume2">
               <p>第<%= j %>位</p>
               <p>店の名前：<%= t.eatry_name %></p>
               <p>ジャンル：<%= t.genre %></p>
@@ -177,7 +185,7 @@
               </p>
             </div>
           <% else %>
-            <div class="post3">
+            <div class="gurume3">
               <p>第<%= j %>位</p>
               <p>店の名前：<%= t.eatry_name %></p>
               <p>ジャンル：<%= t.genre %></p>

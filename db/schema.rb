@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_30_095529) do
+ActiveRecord::Schema.define(version: 2022_11_02_113640) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "gurume_id", null: false
@@ -98,6 +98,21 @@ ActiveRecord::Schema.define(version: 2022_10_30_095529) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "gurume_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gurume_id"], name: "index_tag_maps_on_gurume_id"
+    t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -131,4 +146,6 @@ ActiveRecord::Schema.define(version: 2022_10_30_095529) do
   add_foreign_key "messages", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"
+  add_foreign_key "tag_maps", "gurumes"
+  add_foreign_key "tag_maps", "tags"
 end

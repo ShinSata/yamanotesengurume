@@ -5,7 +5,7 @@
         <h1>新規グルメ投稿ページ</h1>
       </div>
     </div>
-    <%= form_for @gurume do |f| %>
+    <%= form_with(model: @gurume, url: gurumes_path, local: true) do |f| %>
       <div class="postcolumn_area">
         <div class="postcolumn">
             <div class="field">
@@ -104,6 +104,8 @@
             </div>
         </div>
       </div>
+      <p>スペースを入力することで複数のタグを付けることができます。</p>
+      <%= f.text_field :tag_name, placeholder: "Ruby Python Java" %>
 
       <div class="button_area">
         <div class="button">
