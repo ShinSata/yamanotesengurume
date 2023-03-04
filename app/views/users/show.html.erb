@@ -6,7 +6,7 @@
         <% if current_user.id == @user.id %>
               <h1>マイページ</h1>
         <% else %>
-              <h1>投稿者ページ</h1>
+              <h1><%= @user.name %>さんのマイページ</h1>
         <% end %>
             
         </div>
@@ -111,6 +111,7 @@
           </div>
         <% end %>
       </div>
+      
         <h2>フォロー数：<%= @user.followings.count %></h2>
         <% @user.followings.each do |u| %>
           <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
@@ -119,20 +120,24 @@
         <% @user.followers.each do |u| %>
           <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
         <% end %>
-      <% if @user.id == current_user.id %>
-
-      <% else %>
-        <% if @isRoom == true %>
-          <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+        <h2>相互フォロー</h2>
+        <% @users.each do |u| %>
+          <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
+        <% end %>
+      
+        <% if @user.id == current_user.id %>
         <% else %>
-          <%= form_for @room do |f| %>
-            <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, :value=> @user.id %>
+          <% if @isRoom == true %>
+            <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+          <% else %>
+            <%= form_for @room do |f| %>
+              <%= fields_for @entry do |e| %>
+                <%= e.hidden_field :user_id, :value=> @user.id %>
+              <% end %>
+              <%= f.submit "チャットを始める" %>
             <% end %>
-            <%= f.submit "チャットを始める" %>
           <% end %>
         <% end %>
-      <% end %>
 
       
   </div>
