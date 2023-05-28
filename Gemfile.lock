@@ -103,7 +103,6 @@ GEM
       railties (>= 3.2)
     erubi (1.11.0)
     ffi (1.15.5)
-    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hirb (0.7.3)
@@ -154,9 +153,9 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.9-x64-mingw-ucrt)
+    nokogiri (1.14.3-x64-mingw-ucrt)
       racc (~> 1.4)
-    nokogiri (1.13.9-x86_64-linux)
+    nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.4)
@@ -233,8 +232,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.3-x64-mingw-ucrt)
-    sqlite3 (1.5.3-x86_64-linux)
+    sqlite3 (1.6.2-x64-mingw-ucrt)
+    sqlite3 (1.6.2-x86_64-linux)
     ssrf_filter (1.1.1)
     thor (1.2.1)
     tilt (2.0.11)
@@ -249,7 +248,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    unf_ext (0.0.8.2-x64-mingw-ucrt)
     unicode-display_width (0.1.1)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -309,4 +307,4 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 BUNDLED WITH
-   2.3.24
+   2.4.12
