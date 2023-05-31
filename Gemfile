@@ -66,3 +66,5 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
 
+
+gem "dockerfile-rails", ">= 1.4", :group => :development
